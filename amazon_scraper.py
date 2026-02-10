@@ -32,8 +32,8 @@ data = bs(response.text, "html.parser")
 # product_data.raise_for_status()
 # data = bs(product_data.text, "html.parser")
 
-# title=data.select_one("span#productTitle").text
-# price=data.select_one("span.a-price-whole").text.replace(",","").strip(".").strip(" ")
+title=data.select_one("span#productTitle").text
+price=data.select_one("span.a-price-whole").text.replace(",","").strip(".").strip(" ")
 
 
 with smtplib.SMTP('smtp.zoho.in', 587) as connection:
