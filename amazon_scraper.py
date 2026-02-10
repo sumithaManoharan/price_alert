@@ -25,30 +25,9 @@ headers = {
 session = rt.Session()
 session.headers.update(headers)
 response = session.get(api_url)
-print(response.status_code)
 data = bs(response.text, "html.parser")
 
-# 1. Try to find the element
-title_tag = data.select_one("span#productTitle")
 
-# 2. Check if it actually exists before calling .text
-if title_tag:
-    title = title_tag.text.strip()
-    print(f"Successfully found product: {title}")
-    
-    # Now look for the price
-    price_tag = data.select_one("span.a-price-whole")
-    if price_tag:
-        price = int(price_tag.text.replace(",", "").strip("."))
-        # ... rest of your logic ...
-    else:
-        print("Title found, but Price tag was missing.")
-else:
-    # If title_tag is None, this runs instead of crashing
-    print("Amazon blocked us! Returning 'Robot Check' page.")
-    # Optional: Save the HTML to a file to see what Amazon sent
-    with open("error_log.html", "w") as f:
-        f.write(response.text)
 # product_data = rt.get(api_url,headers=headers)
 # product_data.raise_for_status()
 # data = bs(product_data.text, "html.parser")
