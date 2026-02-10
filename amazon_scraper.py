@@ -6,6 +6,8 @@ from email.message import EmailMessage
 
 my_email = os.environ.get("ZOHO_EMAIL")
 zoho_password = os.environ.get("ZOHO_PASSWORD")
+if (my_email = None or zoho_password = None):
+    print("somethings wrong)      
 
 api_url = "https://www.amazon.in/gp/product/B0D73LWVF9/ref=ox_sc_act_title_1?smid=AXOGFIT0PZZ7G&th=1"
 headers = {
