@@ -25,6 +25,6 @@ jobs:
       - name: Execute Python Script
         env:
           # Linking GitHub Secrets to Python Environment Variables
-          MY_EMAIL: ${{ secrets.ZOHO_EMAIL }}
+          ZOHO_EMAIL: ${{ secrets.ZOHO_EMAIL }}
           ZOHO_PASSWORD: ${{ secrets.ZOHO_PASSWORD }}
         run: python amazon_scraper.py
